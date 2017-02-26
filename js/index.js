@@ -1,17 +1,12 @@
 var n = prompt('Введите номер числа Фибоначчи:');
-var parametrA = 1;
-var parametrB = 0;
-var fibonacci;
+var parametrA = 2;
+var parametrB = 1;
 
-
-if(n === 1) {
-  document.write('Число Фибоначчи: ' + parametrB);
-}
-if(n === 0) {
-  document.write('Число Фибоначчи: ' + parametrA);
+if(n < 2) {
+  document.write('Число (цикл): ' + parametrB);
 }
 
-function calcNumberFibonacci(numb){
+function fibonacciLoop(numb){
   var i;  
   var result;
   for(i = 2; i < n; i++) {
@@ -22,9 +17,19 @@ function calcNumberFibonacci(numb){
   return result;
 } 
 
-fibonacci = calcNumberFibonacci(n); 
+function fibonacciRecursion(number) {
+  if(number < 2) {
+    return 1;
+  }
+  else {
+    return fibonacciRecursion(number-2) + fibonacciRecursion(number-1);  
+  }
+}
 
-document.write('number: ' + fibonacci);
+var fibonacci1 = fibonacciLoop(n);
+var fibonacci2 = fibonacciRecursion(n); 
 
+document.write('Число (цикл): ' + fibonacci1);
+document.write('<br>Число (рекурсия): ' + fibonacci2);
 
 
